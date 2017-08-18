@@ -127,8 +127,8 @@ Attempt to login and get user token.
                                 "__DEVNOTE_profile": "profile is Profile used per Customer, only 1 profile per customer, per user.",
                                 "profile": {
                                     "id": 1,
-                                    "name": "Asset Manager",
-                                    "description": "",
+                                    "name": "Asset Manager (Copy)",
+                                    "description": "Copy of an asset manager",
                                     "slug": "1-asset-manager-1",
                                     "permissions": [
                                         {
@@ -144,7 +144,7 @@ Attempt to login and get user token.
                                     "familyProfile": {
                                         "id": 1,
                                         "name": "Asset Manager",
-                                        "slug": "1-asset-manager-1"
+                                        "slug": "asset-manager"
                                     }
                                 }
                             }
@@ -304,8 +304,8 @@ User list.
                                 "__DEVNOTE_profile": "profile is Profile used per Customer, only 1 profile per customer, per user.",
                                 "profile": {
                                     "id": 1,
-                                    "name": "Asset Manager",
-                                    "description": "",
+                                    "name": "Asset Manager (Copy)",
+                                    "description": "copy of an asset manager",
                                     "slug": "1-asset-manager-1",
                                     "permissions": [
                                         {
@@ -321,7 +321,7 @@ User list.
                                     "familyProfile": {
                                         "id": 1,
                                         "name": "Asset Manager",
-                                        "slug": "1-asset-manager-1"
+                                        "slug": "asset-manager"
                                     }
                                 }
                             }
@@ -436,8 +436,8 @@ User detail.
                             "__DEVNOTE_profile": "profile is Profile used per Customer, only 1 profile per customer, per user.",
                             "profile": {
                                 "id": 1,
-                                "name": "Asset Manager",
-                                "description": "",
+                                "name": "Asset Manager (Copy)",
+                                "description": "copy of an asset manager",
                                 "slug": "1-asset-manager-1",
                                 "permissions": [
                                     {
@@ -453,7 +453,7 @@ User detail.
                                 "familyProfile": {
                                     "id": 1,
                                     "name": "Asset Manager",
-                                    "slug": "1-asset-manager-1"
+                                    "slug": "asset-manager"
                                 }
                             }
                         }
@@ -578,7 +578,7 @@ Create user.
                         "familyProfile": {
                             "id": 1,
                             "name": "Asset Manager",
-                            "slug": "1-asset-manager-1"
+                            "slug": "asset-manager"
                         }
                     }
                 }
@@ -702,7 +702,7 @@ Create user.
                                 "familyProfile": {
                                     "id": 1,
                                     "name": "Asset Manager",
-                                    "slug": "1-asset-manager-1"
+                                    "slug": "asset-manager"
                                 }
                             }
                         }
@@ -852,7 +852,7 @@ Login as selected User.
                                     "familyProfile": {
                                         "id": 1,
                                         "name": "Asset Manager",
-                                        "slug": "1-asset-manager-1"
+                                        "slug": "asset-manager"
                                     }
                                 }
                             }
@@ -1078,10 +1078,45 @@ List Child Profile by parent slug.
 
 + Response 200 (application/json)
 
+    + Body
+        
+            {
+                "code": 0,
+                "message": "Success",
+                "data": [
+                    {
+                        "id": 1,
+                        "name": "Asset Manager (Copy)",
+                        "description": "Copy of an asset manager",
+                        "slug": "asset-manager",
+                        "permissions": [
+                            {
+                                "user.create": true
+                            },
+                            {
+                                "user.read": true
+                            },
+                            {
+                                "user.update": true
+                            }
+                        ],
+
+                        "familyProfile": {
+                            "id": 1,
+                            "name": "Asset Manager",
+                            "slug": "asset-manager"
+                        }
+
+                    }
+                ]
+            }
+
 
 ## Group Customer: User Access Resources
-## Customer: User Access List [/customers/{customerId}/users/{userId}/accesses?]
-### (Customer) User Access List [GET]
+## Customer: User Access Detail [/customers/{customerId}/users/{userId}/access?]
+### (Customer) User Access Detail [GET]
+As a customer, it can only see access of it's own user of the same customer detail information.
+Meaning, the result here is a single object.
 
 + Request (application/json)
 
@@ -1090,68 +1125,181 @@ List Child Profile by parent slug.
     + Body
     
             {
-                "accesses": [
-                    {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "id": 1,
+                    "__DEVNOTE_id": "id here is id of customer",
+
+                    "isPowerUser": 1,
+                    "__DEVNOTE_userPowerLevel": "isPowerUser here is powerLevel of User per Customer",
+                    
+                    "customer": {
                         "id": 1,
-                        "isPowerUser": true,
-                        "profileData": {
+                        "fullName": "21 July Editz",
+                        "tradeName": "1111",
+                        "vatOption": 1,
+                        "active": 0,
+                        "intercommunityVat": "11111",
+                        "vat": null,
+                        "siren": null,
+                        "naf": "1111",
+                        "iban": "FR7630001007941234567890185",
+                        "accountName": "21212",
+                        "swift": "FRFRFR76300",
+                        "addressOption": 1,
+                        "customerImg": [
+                            ""
+                        ],
+                        "company": {
+                            "id": 1,
+                            "fullName": "Tesla Corp",
+                            "tradeName": "Tesla",
+                            "intercommunityVat": "11111",
+                            "naf": "1111",
+                            "siren": null,
+                            "vat": null,
+                            "vatOption": 1,
+                            "raisonSociale": {
+                                "id": 5,
+                                "code": "M14",
+                                "label": "EURL"
+                            },
+                            "address": {
+                                "id": 1,
+                                "address1": "S Las Vegas Blvd",
+                                "address2": null,
+                                "zipcode": "11",
+                                "city": "Clark County",
+                                "country": "United States",
+                                "lat": 36.045999,
+                                "lng": -115.1722248
+                            }
+                        }
+                    },
+                    
+                    "__DEVNOTE_profile": "profile is Profile used per Customer, only 1 profile per customer, per user.",
+                    "profile": {
+                        "id": 2,
+                        "name": "Asset Manager (Copy)",
+                        "description": "",
+                        "slug": "1-asset-manager-1",
+                        "permissions": [
+                            {
+                                "user.create": true
+                            },
+                            {
+                                "user.read": true
+                            },
+                            {
+                                "user.update": true
+                            }
+                        ],
+                        "familyProfile": {
                             "id": 1,
                             "name": "Asset Manager",
-                            "description": "",
-                            "slug": "1-asset-manager-1",
-                            "permissions": [
-                                {
-                                    "user.create": true
-                                },
-                                {
-                                    "user.read": true
-                                },
-                                {
-                                    "user.update": true
-                                }
-                            ],
-                            "familyProfile": {
-                                "id": 1,
-                                "name": "Asset Manager",
-                                "slug": "1-asset-manager-1"
-                            }
-                        },
-            
-                        "resources": {
-                            "portfoliosOption": true,
-                            "__DEVNOTE__portfoliosOption": "Is optional value to override all portfolio selection.",
-            
-                            "portfolios": [
-                                {
-                                    "id": 1,
-                                    "__DEVNOTE__id": "ID of Portfolio",
-            
-                                    "familyProfile": {
-                                        "id": 3,
-                                        "slug": "broker"
-                                    },
-            
-                                    "propertiesOption": true,
-                                    "__DEVNOTE__propertiesOption": "Is optional value to override all portfolio selection.",
-            
-                                    "properties": [
-                                        {
-                                            "id": 1,
-            
-                                            "familyProfile": {
-                                                "id": 3,
-                                                "slug": "broker"
-                                            }
-                                        },
-                                        {
-                                            "id": 2,
-            
-                                            "familyProfile": null
-                                        }
-                                    ]
-                                }
-                            ]
+                            "slug": "asset-manager"
                         }
                     }
-                ]
+                }
+            }
+
+## Customer: User Access Update [/customers/{customerId}/users/{userId}/access]
+### (Customer) User Access Update [POST]
+As a customer, it can only see access of it's own user of the same customer detail information.
+Meaning, the result here is a single object.
+
++ Request (application/json)
+
+        {
+            "isPowerUser": 1,
+            "__DEVNOTE_userPowerLevel": "isPowerUser here is powerLevel of User per Customer",
+
+            "profile": {
+                "id": 2
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "id": 1,
+                    "__DEVNOTE_id": "id here is id of customer",
+
+                    "isPowerUser": 1,
+                    "__DEVNOTE_userPowerLevel": "isPowerUser here is powerLevel of User per Customer",
+                    
+                    "customer": {
+                        "id": 1,
+                        "fullName": "21 July Editz",
+                        "tradeName": "1111",
+                        "vatOption": 1,
+                        "active": 0,
+                        "intercommunityVat": "11111",
+                        "vat": null,
+                        "siren": null,
+                        "naf": "1111",
+                        "iban": "FR7630001007941234567890185",
+                        "accountName": "21212",
+                        "swift": "FRFRFR76300",
+                        "addressOption": 1,
+                        "customerImg": [
+                            ""
+                        ],
+                        "company": {
+                            "id": 1,
+                            "fullName": "Tesla Corp",
+                            "tradeName": "Tesla",
+                            "intercommunityVat": "11111",
+                            "naf": "1111",
+                            "siren": null,
+                            "vat": null,
+                            "vatOption": 1,
+                            "raisonSociale": {
+                                "id": 5,
+                                "code": "M14",
+                                "label": "EURL"
+                            },
+                            "address": {
+                                "id": 1,
+                                "address1": "S Las Vegas Blvd",
+                                "address2": null,
+                                "zipcode": "11",
+                                "city": "Clark County",
+                                "country": "United States",
+                                "lat": 36.045999,
+                                "lng": -115.1722248
+                            }
+                        }
+                    },
+                    
+                    "__DEVNOTE_profile": "profile is Profile used per Customer, only 1 profile per customer, per user.",
+                    "profile": {
+                        "id": 2,
+                        "name": "Asset Manager (Copy)",
+                        "description": "",
+                        "slug": "1-asset-manager-1",
+                        "permissions": [
+                            {
+                                "user.create": true
+                            },
+                            {
+                                "user.read": true
+                            },
+                            {
+                                "user.update": true
+                            }
+                        ],
+                        "familyProfile": {
+                            "id": 1,
+                            "name": "Asset Manager",
+                            "slug": "asset-manager"
+                        }
+                    }
+                }
             }
