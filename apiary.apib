@@ -1,80 +1,352 @@
-FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+eFORMAT: 1A
+HOST: http://api.mv2.domain/api/v2/
 
-# Myre - Web - V2
+# Mv2 - Web
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+MV2 utilizes JWT Authentication which generates token on user sign in. Token is required for most requests.
+Token can be send as `token` parameter as query string or as header in such format `Authorization: Bearer {system-generated-token}`.
 
-## Questions Collection [/questions]
+When sending request with body of JSON headers should contain `Content-Type: application/json`.
 
-### List All Questions [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+## Group Authentication
+## Sign In [/auth/login]
+### Sign In [POST]
+Attempt to login and get user token.
+`token` is NOT required.
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "email": "admin@super.com",
+            "password": "password"
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
-    + Headers
+## Sign Out [/auth/logout]
+### Sign Out [POST]
+Logout and clear user token.
+`token` is required.
 
-            Location: /questions/2
++ Request (application/json)
+
+        {
+            "email": "admin@super.com",
+        }
+
++ Response 200 (application/json)
+
+## Reset Password [/auth/reset-password]
+### Reset Password [POST]
+
++ Request (application/json)
+
+        {
+            "email": "admin@super.com",
+        }
+
++ Response 200 (application/json)
+
+## Group Admin: User Resources
+## Admin: User List [/admin/users?]
+### (Admin) User List [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Admin: User Detail [/admin/users/{userId}?]
+### (Admin) User Detail [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
 
     + Body
-
+    
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
+                "code": 0,
+                "message": "Success",
+                "data": [
                     {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
+                        "id": 1,
+                        "civility": "mr",
+                        "lastName": "Lala",
+                        "firstName": "Lulu",
+                        "email": "luluz@mailinator.com",
+                        "mobilePhone": null,
+                        "officePhone": null,
+                        "jobTitle": "CED",
+                        "isAdmin": false,
+                        "isActive": true,
+                        "profilePicPath": null,
+                        "company": {
+                            "id": 1,
+                            "address": {
+                                "id": 1,
+                                "address1": "S Las Vegas Blvd",
+                                "address2": null,
+                                "zipcode": "11",
+                                "city": "Clark County",
+                                "country": "United States",
+                                "lat": 36.045999,
+                                "lng": -115.1722248
+                            },
+                            "fullName": "21 July Editz",
+                            "tradeName": "1111",
+                            "raisonSociale": {
+                                "id": 5,
+                                "code": "M14",
+                                "label": "EURL"
+                            },
+                            "intercommunityVat": "11111",
+                            "naf": "1111",
+                            "siren": null,
+                            "vat": null,
+                            "vatOption": 1
+                        },
+                        "accesses": [
+                            {
+                                "id": 1,
+                                "__DEVNOTE_id": "id here is id of customer",
+            
+                                "isPowerUser": 1,
+                                "__DEVNOTE_userPowerLevel": "isPowerUser here is powerLevel of User per Customer",
+            
+                                "profileData": {
+                                    "id": 1,
+                                    "name": "Asset Manager",
+                                    "description": "",
+                                    "slug": "1-asset-manager-1",
+                                    "permissions": [
+                                        {
+                                            "user.create": true
+                                        },
+                                        {
+                                            "user.read": true
+                                        },
+                                        {
+                                            "user.update": true
+                                        }
+                                    ],
+                                    "familyProfile": {
+                                        "id": 1,
+                                        "name": "Asset Manager",
+                                        "slug": "1-asset-manager-1",
+                                    }
+                                },
+            
+                                "customerData": {
+                                    "id": 1,
+                                    "fullName": "21 July Editz",
+                                    "tradeName": "1111",
+                                    "vatOption": 1,
+                                    "active": 0,
+                                    "intercommunityVat": "11111",
+                                    "vat": null,
+                                    "siren": null,
+                                    "naf": "1111",
+                                    "iban": "FR7630001007941234567890185",
+                                    "accountName": "21212",
+                                    "swift": "FRFRFR76300",
+                                    "addressOption": 1,
+                                    "customerImg": [
+                                        ""
+                                    ],
+                                    "company": {
+                                        "id": 1,
+                                        "address": {
+                                            "id": 1,
+                                            "address1": "S Las Vegas Blvd",
+                                            "address2": null,
+                                            "zipcode": "11",
+                                            "city": "Clark County",
+                                            "country": "United States",
+                                            "lat": 36.045999,
+                                            "lng": -115.1722248
+                                        },
+                                        "fullName": "Tesla Corp",
+                                        "tradeName": "Tesla",
+                                        "raisonSociale": {
+                                            "id": 5,
+                                            "code": "M14",
+                                            "label": "EURL"
+                                        },
+                                        "intercommunityVat": "11111",
+                                        "naf": "1111",
+                                        "siren": null,
+                                        "vat": null,
+                                        "vatOption": 1
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+
+## Admin: User Create [/admin/users]
+### (Admin) User Create [POST]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Admin: User Update [/admin/users/{userId}]
+### (Admin) User Update [POST]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Admin: User Delete [/admin/users/{userId}/delete]
+### (Admin) User Delete [POST]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Admin: User Impersonate [/admin/users/{userId}/impersonate]
+### (Admin) User Impersonate [POST]
+Login as selected User.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Admin: User Toggle Active [/admin/users/{userId}/toggle-active]
+### (Admin) User Toggle Active [POST]
+Toggle User Active Status.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Admin: User Toggle Power User [/admin/users/{userId}/toggle-power-user]
+### (Admin) User Toggle Power User [POST]
+Toggle User Power User Status. Will be available on user with Company registered with valid Customer.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Admin: User Reset Password [/admin/users/{userId}/reset-password]
+### (Admin) User Reset Password [POST]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Group Admin: Profile Resources
+## Admin: Profile List [/admin/profiles?]
+### (Admin) Profile List [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Group Customer: Profile Resources
+## Customer: Profile List [/customers/{customerId}/profiles?]
+### (Customer) Profile List [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Customer: Profile Detail [/customers/{customerId}/profiles/{profileId}?]
+### (Customer) Profile Detail [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Customer: Profile Create [/customers/{customerId}/profiles]
+### (Customer) Profile Create [POST]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Customer: Profile Update [/customers/{customerId}/profiles/{profileId}]
+### (Customer) Profile Update [POST]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+## Group Customer: User Access Resources
+## Customer: User Access List [/customers/{customerId}/users/{userId}/accesses?]
+### (Customer) User Access List [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "accesses": [
+                    {
+                        "id": 1,
+                        "isPowerUser": true,
+                        "profileData": {
+                            "id": 1,
+                            "name": "Asset Manager",
+                            "description": "",
+                            "slug": "1-asset-manager-1",
+                            "permissions": [
+                                {
+                                    "user.create": true
+                                },
+                                {
+                                    "user.read": true
+                                },
+                                {
+                                    "user.update": true
+                                }
+                            ],
+                            "familyProfile": {
+                                "id": 1,
+                                "name": "Asset Manager",
+                                "slug": "1-asset-manager-1"
+                            }
+                        },
+            
+                        "resources": {
+                            "portfoliosOption": true,
+                            "__DEVNOTE__portfoliosOption": "Is optional value to override all portfolio selection.",
+            
+                            "portfolios": [
+                                {
+                                    "id": 1,
+                                    "__DEVNOTE__id": "ID of Portfolio",
+            
+                                    "familyProfile": {
+                                        "id": 3,
+                                        "slug": "broker"
+                                    },
+            
+                                    "propertiesOption": true,
+                                    "__DEVNOTE__propertiesOption": "Is optional value to override all portfolio selection.",
+            
+                                    "properties": [
+                                        {
+                                            "id": 1,
+            
+                                            "familyProfile": {
+                                                "id": 3,
+                                                "slug": "broker"
+                                            }
+                                        },
+                                        {
+                                            "id": 2,
+            
+                                            "familyProfile": null
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
                     }
                 ]
             }
