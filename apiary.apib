@@ -72,8 +72,10 @@ Attempt to login and get user token.
                             }
                         },
 
-                        "customers": [
+                        "accesses": [
                             {
+                                "id": 1,
+                                "isPowerUser": true,
                                 "customer": {
                                     "id": 1,
                                     "fullName": "21 July Editz",
@@ -117,15 +119,43 @@ Attempt to login and get user token.
                                         }
                                     }
                                 },
-                                
-                                "accesses": {
-                                    "User Access Detail"
+                                "resources": {
+                                    "portfolios": [
+                                        {
+                                            "id": 1,
+                                            "__DEVNOTE__id": "Id of portfolio",
+                                            "profile": {
+                                                "id": 3,
+                                                "name": "Broker Portfolio 1",
+                                                "slug": "1-broker-11231"
+                                            },
+                                            "allPropertiesOption": false,
+                                            "properties": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "Property #1",
+                                                    "__DEVNOTE_profile": "Profile here is User User Access.",
+                                                    "profile": {
+                                                        "id": 4,
+                                                        "name": "Broker",
+                                                        "slug": "1-broker-1524"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 2,
+                                            "__DEVNOTE__id": "Id of portfolio",
+                                            "profile": null,
+                                            "allPropertiesOption": true,
+                                            "__DEVNOTE_allPropertiesOption": "Property option used to override all property access.",
+                                            "properties": null
+                                        }
+                                    ]
                                 }
                             }
-                        ],
-
-                    },
-                    
+                        ]
+                    }
                 }
 
 ## Sign Out [/auth/logout]
@@ -223,9 +253,10 @@ User list.
                                 "lng": -115.1722248
                             }
                         },
-
-                        "customers": [
+                        "accesses": [
                             {
+                                "id": 1,
+                                "isPowerUser": true,
                                 "customer": {
                                     "id": 1,
                                     "fullName": "21 July Editz",
@@ -269,12 +300,42 @@ User list.
                                         }
                                     }
                                 },
-                                
-                                "accesses": {
-                                    "User Access Detail"
+                                "resources": {
+                                    "portfolios": [
+                                        {
+                                            "id": 1,
+                                            "__DEVNOTE__id": "Id of portfolio",
+                                            "profile": {
+                                                "id": 3,
+                                                "name": "Broker Portfolio 1",
+                                                "slug": "1-broker-11231"
+                                            },
+                                            "allPropertiesOption": false,
+                                            "properties": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "Property #1",
+                                                    "__DEVNOTE_profile": "Profile here is User User Access.",
+                                                    "profile": {
+                                                        "id": 4,
+                                                        "name": "Broker",
+                                                        "slug": "1-broker-1524"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 2,
+                                            "__DEVNOTE__id": "Id of portfolio",
+                                            "profile": null,
+                                            "allPropertiesOption": true,
+                                            "__DEVNOTE_allPropertiesOption": "Property option used to override all property access.",
+                                            "properties": null
+                                        }
+                                    ]
                                 }
                             }
-                        ],
+                        ]
                     }
                 ]
             }
@@ -329,9 +390,10 @@ User detail.
                             "lng": -115.1722248
                         }
                     },
-
-                    "customers": [
+                    "accesses": [
                         {
+                            "id": 1,
+                            "isPowerUser": true,
                             "customer": {
                                 "id": 1,
                                 "fullName": "21 July Editz",
@@ -375,12 +437,42 @@ User detail.
                                     }
                                 }
                             },
-                            
-                            "accesses": {
-                                "User Access Detail"
+                            "resources": {
+                                "portfolios": [
+                                    {
+                                        "id": 1,
+                                        "__DEVNOTE__id": "Id of portfolio",
+                                        "profile": {
+                                            "id": 3,
+                                            "name": "Broker Portfolio 1",
+                                            "slug": "1-broker-11231"
+                                        },
+                                        "allPropertiesOption": false,
+                                        "properties": [
+                                            {
+                                                "id": 1,
+                                                "name": "Property #1",
+                                                "__DEVNOTE_profile": "Profile here is User User Access.",
+                                                "profile": {
+                                                    "id": 4,
+                                                    "name": "Broker",
+                                                    "slug": "1-broker-1524"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 2,
+                                        "__DEVNOTE__id": "Id of portfolio",
+                                        "profile": null,
+                                        "allPropertiesOption": true,
+                                        "__DEVNOTE_allPropertiesOption": "Property option used to override all property access.",
+                                        "properties": null
+                                    }
+                                ]
                             }
                         }
-                    ],
+                    ]
                 }
             }
 
@@ -526,9 +618,10 @@ Create user.
                             "lng": -115.1722248
                         }
                     },
-
-                    "customers": [
+                    "accesses": [
                         {
+                            "id": 1,
+                            "isPowerUser": true,
                             "customer": {
                                 "id": 1,
                                 "fullName": "21 July Editz",
@@ -572,12 +665,42 @@ Create user.
                                     }
                                 }
                             },
-                            
-                            "accesses": {
-                                "User Access Detail"
+                            "resources": {
+                                "portfolios": [
+                                    {
+                                        "id": 1,
+                                        "__DEVNOTE__id": "Id of portfolio",
+                                        "profile": {
+                                            "id": 3,
+                                            "name": "Broker Portfolio 1",
+                                            "slug": "1-broker-11231"
+                                        },
+                                        "allPropertiesOption": false,
+                                        "properties": [
+                                            {
+                                                "id": 1,
+                                                "name": "Property #1",
+                                                "__DEVNOTE_profile": "Profile here is User User Access.",
+                                                "profile": {
+                                                    "id": 4,
+                                                    "name": "Broker",
+                                                    "slug": "1-broker-1524"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": 2,
+                                        "__DEVNOTE__id": "Id of portfolio",
+                                        "profile": null,
+                                        "allPropertiesOption": true,
+                                        "__DEVNOTE_allPropertiesOption": "Property option used to override all property access.",
+                                        "properties": null
+                                    }
+                                ]
                             }
                         }
-                    ],
+                    ]
                 }
             }
 ## Admin: User Update [/admin/users/{userId}]
@@ -950,7 +1073,6 @@ List Child Profile by parent slug.
                             "name": "Asset Manager",
                             "slug": "asset-manager"
                         }
-
                     }
                 ]
             }
@@ -1025,25 +1147,24 @@ Will replace (deletes existing) access table content according to requested data
 
         {
             "id": 1,
-            "resources": {
-                "portfolios": [
-                    {
-                        "id": 1,
-                        "profile": {
-                            "id": 3
-                        },
-                        "allPropertiesOption": false,
-                        "properties": [
-                            {
-                                "id": 1,
-                                "profile": {
-                                    "id": 4
-                                }
+            "__DEVNOTE__id": "Id of Customer",
+            "portfolios": [
+                {
+                    "id": 1,
+                    "profile": {
+                        "id": 3
+                    },
+                    "allPropertiesOption": false,
+                    "properties": [
+                        {
+                            "id": 1,
+                            "profile": {
+                                "id": 4
                             }
-                        ]
-                    }
-                ]
-            }
+                        }
+                    ]
+                }
+            ]
         }
 
 + Response 200 (application/json)
