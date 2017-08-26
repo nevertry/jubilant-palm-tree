@@ -198,7 +198,7 @@ Reset password.
                 }
             }
 
-## Group Admin: User Resources
+## Group Admin: User
 ## Admin: User List [/admin/users?]
 ### (Admin) User List [GET]
 User list.
@@ -474,7 +474,7 @@ User detail.
             }
 
 ## Admin: User Create [/admin/users]
-### (Admin) User Create [POST]
+### (NOT AVAILABLE ATM)(Admin) User Create [POST]
 Create user.
 
 + Request (application/json)
@@ -650,7 +650,7 @@ Create user.
             }
 
 ## Admin: User Update [/admin/users/{userId}]
-### (Admin) User Update [POST]
+### (NOT AVAILABLE ATM)(Admin) User Update [POST]
 
 + Request (application/json)
 
@@ -826,7 +826,7 @@ Create user.
 
 
 ## Admin: User Delete [/admin/users/{userId}/delete]
-### (Admin) User Delete [POST]
+### (NOT AVAILABLE ATM)(Admin) User Delete [POST]
 
 + Request (application/json)
 
@@ -1002,7 +1002,159 @@ Toggle User Power User Status. Will be available on user with Company registered
                 "data": "User Object"
             }
 
-## Group Admin: Profile Resources
+## Admin: User Customer List [/admin/users/{userId}/customers]
+### (Admin) User Customer List [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                "code": 0,
+                "message": "Success",
+                "data": [
+                    {
+                        "id": 1,
+                        "fullName": "Myre",
+                        "tradeName": "Myre",
+                        "vatOption": null,
+                        "active": 1,
+                        "intercommunityVat": null,
+                        "vat": null,
+                        "siren": null,
+                        "naf": null,
+                        "iban": null,
+                        "accountName": null,
+                        "swift": null,
+                        "addressOption": 1,
+                        "customerImg": [
+                            ""
+                        ],
+                        "raisonSociale": {
+                            "id": 1,
+                            "code": "M01",
+                            "label": "SOCIETE"
+                        },
+                        "company": {
+                            "id": 1,
+                            "address": {
+                                "id": 1,
+                                "address1": "4th Avenue Cafe",
+                                "address2": "",
+                                "zipcode": "14123",
+                                "city": "Vancouver",
+                                "country": "CANADA",
+                                "lat": 49.2827291,
+                                "lng": -123.1207375
+                            },
+                            "fullName": "Myre",
+                            "tradeName": "Corp",
+                            "raisonSociale": {
+                                "id": 1,
+                                "code": "M01",
+                                "label": "SOCIETE"
+                            },
+                            "intercommunityVat": null,
+                            "naf": null,
+                            "siren": null,
+                            "vat": null,
+                            "vatOption": null
+                        }
+                    },
+                    {
+                        "id": 300,
+                        "fullName": "Contech",
+                        "tradeName": "Contech",
+                        "vatOption": null,
+                        "active": 1,
+                        "intercommunityVat": null,
+                        "vat": null,
+                        "siren": null,
+                        "naf": null,
+                        "iban": null,
+                        "accountName": null,
+                        "swift": null,
+                        "addressOption": 1,
+                        "customerImg": [
+                            ""
+                        ],
+                        "raisonSociale": {
+                            "id": 1,
+                            "code": "M01",
+                            "label": "SOCIETE"
+                        },
+                        "company": {
+                            "id": 300,
+                            "address": {
+                                "id": 1,
+                                "address1": "4th Avenue Cafe",
+                                "address2": "",
+                                "zipcode": "14123",
+                                "city": "Vancouver",
+                                "country": "CANADA",
+                                "lat": 49.2827291,
+                                "lng": -123.1207375
+                            },
+                            "fullName": "Contect",
+                            "tradeName": "Contect",
+                            "raisonSociale": {
+                                "id": 1,
+                                "code": "M01",
+                                "label": "SOCIETE"
+                            },
+                            "intercommunityVat": null,
+                            "naf": null,
+                            "siren": null,
+                            "vat": null,
+                            "vatOption": null
+                        }
+                    }
+                ]
+            }
+
+## Admin: User Customer Power User Promote [/admin/users/{userId}/customers/{customerId}/promote]
+### (Admin) User Customer Power User Promote [POST]
+Promote User of a Customer to a Power User. Relation must exists.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                "code": 0,
+                "message": "Success",
+                "data": true,
+                "version": {
+                    "api": "2017-08-26 13:02:20 +0700",
+                    "web": "2017-05-30 11:20:44 +0700"
+                }
+            }
+
+## Admin: User Customer Power User Demote [/admin/users/{userId}/customers/{customerId}/demote]
+### (Admin) User Customer Power User Demote [POST]
+Demote User of a Customer from a Power User. Relation must exists.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                "code": 0,
+                "message": "Success",
+                "data": false,
+                "version": {
+                    "api": "2017-08-26 13:02:20 +0700",
+                    "web": "2017-05-30 11:20:44 +0700"
+                }
+            }
+
+## Group Admin: Profile
 ## Admin: Profile List [/admin/profiles?]
 ### (Admin) Profile List [GET]
 
@@ -1041,7 +1193,148 @@ Toggle User Power User Status. Will be available on user with Company registered
                 ]
             }
 
-## Group Customer: Profile Resources
+## Group Customer: User
+## Customer: User List [/customers/{customerId}/users?]
+### (Customer) User List [GET]
+User list for Customer. Only display accesses by given Customer.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "code": 0,
+                "message": "Success",
+                "data": [
+                    {
+                        "id": 1,
+                        "civility": "mr",
+                        "lastName": "Lala",
+                        "firstName": "Lulu",
+                        "email": "luluz@mailinator.com",
+                        "mobilePhone": null,
+                        "officePhone": null,
+                        "jobTitle": "CED",
+                        "isAdmin": false,
+                        "isActive": true,
+                        "profilePicPath": null,
+                        "company": {
+                            "id": 1,
+                            "fullName": "21 July Editz",
+                            "tradeName": "1111",
+                            "intercommunityVat": "11111",
+                            "naf": "1111",
+                            "siren": null,
+                            "vat": null,
+                            "vatOption": 1,
+                            "raisonSociale": {
+                                "id": 5,
+                                "code": "M14",
+                                "label": "EURL"
+                            },
+                            "address": {
+                                "id": 1,
+                                "address1": "S Las Vegas Blvd",
+                                "address2": null,
+                                "zipcode": "11",
+                                "city": "Clark County",
+                                "country": "United States",
+                                "lat": 36.045999,
+                                "lng": -115.1722248
+                            }
+                        },
+                        "accesses": [
+                            {
+                                "id": 1,
+                                "isPowerUser": true,
+                                "customer": {
+                                    "id": 1,
+                                    "fullName": "21 July Editz",
+                                    "tradeName": "1111",
+                                    "vatOption": 1,
+                                    "active": 0,
+                                    "intercommunityVat": "11111",
+                                    "vat": null,
+                                    "siren": null,
+                                    "naf": "1111",
+                                    "iban": "FR7630001007941234567890185",
+                                    "accountName": "21212",
+                                    "swift": "FRFRFR76300",
+                                    "addressOption": 1,
+                                    "customerImg": [
+                                        ""
+                                    ],
+                                    "company": {
+                                        "id": 1,
+                                        "fullName": "Tesla Corp",
+                                        "tradeName": "Tesla",
+                                        "intercommunityVat": "11111",
+                                        "naf": "1111",
+                                        "siren": null,
+                                        "vat": null,
+                                        "vatOption": 1,
+                                        "raisonSociale": {
+                                            "id": 5,
+                                            "code": "M14",
+                                            "label": "EURL"
+                                        },
+                                        "address": {
+                                            "id": 1,
+                                            "address1": "S Las Vegas Blvd",
+                                            "address2": null,
+                                            "zipcode": "11",
+                                            "city": "Clark County",
+                                            "country": "United States",
+                                            "lat": 36.045999,
+                                            "lng": -115.1722248
+                                        }
+                                    }
+                                },
+                                "resources": {
+                                    "portfolios": [
+                                        {
+                                            "id": 1,
+                                            "__DEVNOTE__id": "Id of portfolio",
+                                            "profile": {
+                                                "id": 3,
+                                                "name": "Broker Portfolio 1",
+                                                "slug": "1-broker-11231"
+                                            },
+                                            "allPropertiesOption": false,
+                                            "properties": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "Property #1",
+                                                    "__DEVNOTE_profile": "Profile here is User User Access.",
+                                                    "profile": {
+                                                        "id": 4,
+                                                        "name": "Broker",
+                                                        "slug": "1-broker-1524"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 2,
+                                            "__DEVNOTE__id": "Id of portfolio",
+                                            "profile": null,
+                                            "allPropertiesOption": true,
+                                            "__DEVNOTE_allPropertiesOption": "Property option used to override all property access.",
+                                            "properties": null
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+
+
+
+## Group Customer: Profile
 ## Customer: Profile List [/customers/{customerId}/profiles?]
 ### (Customer) Profile List [GET]
 
@@ -1262,7 +1555,7 @@ List Child Profile by parent slug.
             }
 
 
-## Group Customer: User Access Resources
+## Group Customer: User Access
 ## Customer: User Access Detail [/customers/{customerId}/users/{userId}/access?]
 ### (Customer) User Access Detail [GET]
 As a customer, it can only see access of it's own user of the same customer detail information.
