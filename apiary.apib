@@ -1754,6 +1754,54 @@ Will replace (deletes existing) access table content according to requested data
             }
 
 ## Group Customer: User Access Dataroom Global
+## Customer: User Access Dataroom Global List [/customers/{customerId}/users/{userId}/access-dataroom-global-list?]
+### Customer: User Access Dataroom Global List [POST]
+Get Dataroom parent list
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "code": 0,
+                "message": "Success",
+                "data": [
+                    {
+                        "level": "I",
+                        "label": "Rental Situation"
+                    },
+                    {
+                        "level": "II",
+                        "label": "Rental Management"
+                    },
+                    {
+                        "level": "III",
+                        "label": "Building Legal Situation"
+                    },
+                    {
+                        "level": "IV",
+                        "label": "Corporate"
+                    },
+                    {
+                        "level": "V",
+                        "label": "Building Taxes & Insurances"
+                    },
+                    {
+                        "level": "VI",
+                        "label": "Building Operations"
+                    },
+                    {
+                        "level": "VII",
+                        "label": "Works/Restructuring"
+                    },
+                    {
+                        "level": "VIII",
+                        "label": "Pending Ligitations"
+                    },
+                ]
+
 ## Customer: User Access Dataroom Global [/customers/{customerId}/users/{userId}/access-dataroom-global]
 ### Customer: User Access Dataroom Global [POST]
 Save Global User Access for Dataroom.
@@ -1761,6 +1809,7 @@ Save Global User Access for Dataroom.
 + Request (application/json)
 
         {
+            "allDataroomOption": false,
             "dataroom": [
                 {
                     "level": "I"
