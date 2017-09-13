@@ -198,10 +198,687 @@ Reset password.
                 }
             }
 
-## Group Admin: User
+## Group -NEW- Admin: Customer
+## Admin: Customer List [/admin/customers?]
+### (Admin) Customer List [GET]
+Customer List.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                "code": 0,
+                "message": "Success",
+                "data": [
+                    {
+                        "id": 5,
+                        "fullName": "Metro Corp.",
+                        "tradeName": "MCORP",
+                        "vatOption": 1,
+                        "active": 1,
+                        "intercommunityVat": "VAT111",
+                        "vat": null,
+                        "siren": null,
+                        "naf": "NAF",
+                        "iban": "FR7630001007941234567890185",
+                        "accountName": "IBANK",
+                        "swift": "FRFRFR76300",
+                        "addressOption": 0,
+                        "addresses": [
+                            {
+                                "id": 9,
+                                "addressType": "headquarter",
+                                "address": {
+                                    "id": 28,
+                                    "address1": "West Lane 12",
+                                    "address2": null,
+                                    "zipcode": "14123",
+                                    "city": "Vancouver",
+                                    "country": "CANADA",
+                                    "lat": 49.2827291,
+                                    "lng": -123.1207375
+                                }
+                            },
+                            {
+                                "id": 10,
+                                "addressType": "billing",
+                                "address": {
+                                    "id": 29,
+                                    "address1": "Dakota 13",
+                                    "address2": null,
+                                    "zipcode": "41321",
+                                    "city": "Cuautitlan",
+                                    "country": "MEXICO",
+                                    "lat": 19.6721809,
+                                    "lng": -99.1809685
+                                }
+                            }
+                        ],
+                        "customerImg": [
+                            ""
+                        ],
+                        "raisonSociale": {
+                            "id": 1,
+                            "code": "M01",
+                            "label": "SOCIETE"
+                        },
+                        "company": {
+                            "id": 8,
+                            "address": {
+                                "id": 28,
+                                "address1": "West Lane 12",
+                                "address2": null,
+                                "zipcode": "14123",
+                                "city": "Vancouver",
+                                "country": "CANADA",
+                                "lat": 49.2827291,
+                                "lng": -123.1207375
+                            },
+                            "fullName": "Metro Corp.",
+                            "tradeName": "MCORP",
+                            "raisonSociale": {
+                                "id": 1,
+                                "code": "M01",
+                                "label": "SOCIETE"
+                            },
+                            "intercommunityVat": "VAT111",
+                            "naf": "NAF",
+                            "siren": null,
+                            "vat": null,
+                            "vatOption": 1
+                        },
+                        "contact": {
+                            "id": 6,
+                            "civility": "mr",
+                            "lastName": "Pantjasax",
+                            "firstName": "Harry",
+                            "email": "hendy.yanuar+hpsax@wgs.co.id",
+                            "mobilePhone": "09",
+                            "officePhone": null,
+                            "jobTitle": "DR",
+                            "isGuest": false,
+                            "isCustomer": true,
+                            "isActive": true,
+                            "profilePicPath": null
+                        }
+                    }
+                ]
+            }
+
+## Admin: Customer Detail [/admin/customers/{customerId}?]
+### (Admin) Customer Detail [GET]
+Customer Detail.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "id": 5,
+                    "fullName": "Metro Corp.",
+                    "tradeName": "MCORP",
+                    "vatOption": 1,
+                    "active": 1,
+                    "intercommunityVat": "VAT111",
+                    "vat": null,
+                    "siren": null,
+                    "naf": "NAF",
+                    "iban": "FR7630001007941234567890185",
+                    "accountName": "IBANK",
+                    "swift": "FRFRFR76300",
+                    "addressOption": 0,
+                    "addresses": [
+                        {
+                            "id": 9,
+                            "addressType": "headquarter",
+                            "address": {
+                                "id": 28,
+                                "address1": "West Lane 12",
+                                "address2": null,
+                                "zipcode": "14123",
+                                "city": "Vancouver",
+                                "country": "CANADA",
+                                "lat": 49.2827291,
+                                "lng": -123.1207375
+                            }
+                        },
+                        {
+                            "id": 10,
+                            "addressType": "billing",
+                            "address": {
+                                "id": 29,
+                                "address1": "Dakota 13",
+                                "address2": null,
+                                "zipcode": "41321",
+                                "city": "Cuautitlan",
+                                "country": "MEXICO",
+                                "lat": 19.6721809,
+                                "lng": -99.1809685
+                            }
+                        }
+                    ],
+                    "customerImg": [
+                        ""
+                    ],
+                    "raisonSociale": {
+                        "id": 1,
+                        "code": "M01",
+                        "label": "SOCIETE"
+                    },
+                    "company": {
+                        "id": 8,
+                        "address": {
+                            "id": 28,
+                            "address1": "West Lane 12",
+                            "address2": null,
+                            "zipcode": "14123",
+                            "city": "Vancouver",
+                            "country": "CANADA",
+                            "lat": 49.2827291,
+                            "lng": -123.1207375
+                        },
+                        "fullName": "Metro Corp.",
+                        "tradeName": "MCORP",
+                        "raisonSociale": {
+                            "id": 1,
+                            "code": "M01",
+                            "label": "SOCIETE"
+                        },
+                        "intercommunityVat": "VAT111",
+                        "naf": "NAF",
+                        "siren": null,
+                        "vat": null,
+                        "vatOption": 1
+                    },
+                    "contact": {
+                        "id": 6,
+                        "civility": "mr",
+                        "lastName": "Pantjasax",
+                        "firstName": "Harry",
+                        "email": "hendy.yanuar+hpsax@wgs.co.id",
+                        "mobilePhone": "09",
+                        "officePhone": null,
+                        "jobTitle": "DR",
+                        "isGuest": false,
+                        "isCustomer": true,
+                        "isActive": true,
+                        "profilePicPath": null
+                    }
+                }
+            }
+
+## Admin: Customer Create [/admin/customers]
+### (Admin) Customer Create [POST]
+Create Customer.
+
++ Request (application/json)
+
+        {
+            "addressOption": false,
+            "vatOption": true,
+            "intercommunityVat": "VAT111",
+            "fullName": "Mondelez International",
+            "raisonSociale": {
+                "id": 1,
+                "code": "M01",
+                "label": "SOCIETE"
+            },
+            "tradeName": "Nandai",
+            "naf": "NAF",
+            "accountName": "IBANK",
+            "iban": "FR7630001007941234567890185",
+            "swift": "FRFRFR76300",
+            "siren": "111111118",
+            "address": {
+                "address1": "West Lane 12",
+                "address2": "",
+                "zipcode": "14123",
+                "city": "Vancouver",
+                "country": "CANADA",
+                "lat": 49.2827291,
+                "lng": -123.12073750000002
+            },
+            "contact": {
+                "civility": "mr",
+                "firstName": "Ritz",
+                "lastName": "Chiz",
+                "email": "hendy.yanuar+ritzchiz@wgs.co.id",
+                "mobilePhone": "09",
+                "jobTitle": "DR"
+            },
+            "billingAddress": {
+                "address1": "Dakota 13",
+                "address2": "",
+                "zipcode": "41321",
+                "city": "Cuautitlan",
+                "country": "MEXICO",
+                "lat": 19.6721809,
+                "lng": -99.1809685
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "id": 5,
+                    "fullName": "Metro Corp.",
+                    "tradeName": "MCORP",
+                    "vatOption": 1,
+                    "active": 1,
+                    "intercommunityVat": "VAT111",
+                    "vat": null,
+                    "siren": null,
+                    "naf": "NAF",
+                    "iban": "FR7630001007941234567890185",
+                    "accountName": "IBANK",
+                    "swift": "FRFRFR76300",
+                    "addressOption": 0,
+                    "addresses": [
+                        {
+                            "id": 9,
+                            "addressType": "headquarter",
+                            "address": {
+                                "id": 28,
+                                "address1": "West Lane 12",
+                                "address2": null,
+                                "zipcode": "14123",
+                                "city": "Vancouver",
+                                "country": "CANADA",
+                                "lat": 49.2827291,
+                                "lng": -123.1207375
+                            }
+                        },
+                        {
+                            "id": 10,
+                            "addressType": "billing",
+                            "address": {
+                                "id": 29,
+                                "address1": "Dakota 13",
+                                "address2": null,
+                                "zipcode": "41321",
+                                "city": "Cuautitlan",
+                                "country": "MEXICO",
+                                "lat": 19.6721809,
+                                "lng": -99.1809685
+                            }
+                        }
+                    ],
+                    "customerImg": [
+                        ""
+                    ],
+                    "raisonSociale": {
+                        "id": 1,
+                        "code": "M01",
+                        "label": "SOCIETE"
+                    },
+                    "company": {
+                        "id": 8,
+                        "address": {
+                            "id": 28,
+                            "address1": "West Lane 12",
+                            "address2": null,
+                            "zipcode": "14123",
+                            "city": "Vancouver",
+                            "country": "CANADA",
+                            "lat": 49.2827291,
+                            "lng": -123.1207375
+                        },
+                        "fullName": "Metro Corp.",
+                        "tradeName": "MCORP",
+                        "raisonSociale": {
+                            "id": 1,
+                            "code": "M01",
+                            "label": "SOCIETE"
+                        },
+                        "intercommunityVat": "VAT111",
+                        "naf": "NAF",
+                        "siren": null,
+                        "vat": null,
+                        "vatOption": 1
+                    },
+                    "contact": {
+                        "id": 6,
+                        "civility": "mr",
+                        "lastName": "Pantjasax",
+                        "firstName": "Harry",
+                        "email": "hendy.yanuar+hpsax@wgs.co.id",
+                        "mobilePhone": "09",
+                        "officePhone": null,
+                        "jobTitle": "DR",
+                        "isGuest": false,
+                        "isCustomer": true,
+                        "isActive": true,
+                        "profilePicPath": null
+                    }
+                }
+            }
+
+## Admin: Customer Update [/admin/customers/{customerId}]
+### (Admin) Customer Update [POST]
+Update Customer.
+
++ Request (application/json)
+
+        {
+            "id": 1,
+            "addressOption": false,
+            "vatOption": true,
+            "intercommunityVat": "VAT111",
+            "fullName": "Mondelez International",
+            "raisonSociale": {
+                "id": 1,
+                "code": "M01",
+                "label": "SOCIETE"
+            },
+            "tradeName": "Nandai",
+            "naf": "NAF",
+            "accountName": "IBANK",
+            "iban": "FR7630001007941234567890185",
+            "swift": "FRFRFR76300",
+            "siren": "111111118",
+            "address": {
+                "id": 1,
+                "address1": "West Lane 12",
+                "address2": "",
+                "zipcode": "14123",
+                "city": "Vancouver",
+                "country": "CANADA",
+                "lat": 49.2827291,
+                "lng": -123.12073750000002
+            },
+            "contact": {
+                "id": 1,
+                "civility": "mr",
+                "firstName": "Ritz",
+                "lastName": "Chiz",
+                "email": "hendy.yanuar+ritzchiz@wgs.co.id",
+                "mobilePhone": "09",
+                "jobTitle": "DR"
+            },
+            "billingAddress": {
+                "id": 1,
+                "address1": "Dakota 13",
+                "address2": "",
+                "zipcode": "41321",
+                "city": "Cuautitlan",
+                "country": "MEXICO",
+                "lat": 19.6721809,
+                "lng": -99.1809685
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "id": 5,
+                    "fullName": "Metro Corp.",
+                    "tradeName": "MCORP",
+                    "vatOption": 1,
+                    "active": 1,
+                    "intercommunityVat": "VAT111",
+                    "vat": null,
+                    "siren": null,
+                    "naf": "NAF",
+                    "iban": "FR7630001007941234567890185",
+                    "accountName": "IBANK",
+                    "swift": "FRFRFR76300",
+                    "addressOption": 0,
+                    "addresses": [
+                        {
+                            "id": 9,
+                            "addressType": "headquarter",
+                            "address": {
+                                "id": 28,
+                                "address1": "West Lane 12",
+                                "address2": null,
+                                "zipcode": "14123",
+                                "city": "Vancouver",
+                                "country": "CANADA",
+                                "lat": 49.2827291,
+                                "lng": -123.1207375
+                            }
+                        },
+                        {
+                            "id": 10,
+                            "addressType": "billing",
+                            "address": {
+                                "id": 29,
+                                "address1": "Dakota 13",
+                                "address2": null,
+                                "zipcode": "41321",
+                                "city": "Cuautitlan",
+                                "country": "MEXICO",
+                                "lat": 19.6721809,
+                                "lng": -99.1809685
+                            }
+                        }
+                    ],
+                    "customerImg": [
+                        ""
+                    ],
+                    "raisonSociale": {
+                        "id": 1,
+                        "code": "M01",
+                        "label": "SOCIETE"
+                    },
+                    "company": {
+                        "id": 8,
+                        "address": {
+                            "id": 28,
+                            "address1": "West Lane 12",
+                            "address2": null,
+                            "zipcode": "14123",
+                            "city": "Vancouver",
+                            "country": "CANADA",
+                            "lat": 49.2827291,
+                            "lng": -123.1207375
+                        },
+                        "fullName": "Metro Corp.",
+                        "tradeName": "MCORP",
+                        "raisonSociale": {
+                            "id": 1,
+                            "code": "M01",
+                            "label": "SOCIETE"
+                        },
+                        "intercommunityVat": "VAT111",
+                        "naf": "NAF",
+                        "siren": null,
+                        "vat": null,
+                        "vatOption": 1
+                    },
+                    "contact": {
+                        "id": 6,
+                        "civility": "mr",
+                        "lastName": "Pantjasax",
+                        "firstName": "Harry",
+                        "email": "hendy.yanuar+hpsax@wgs.co.id",
+                        "mobilePhone": "09",
+                        "officePhone": null,
+                        "jobTitle": "DR",
+                        "isGuest": false,
+                        "isCustomer": true,
+                        "isActive": true,
+                        "profilePicPath": null
+                    }
+                }
+            }
+
+## Admin: Customer Toggle Active [/admin/customers/{customerId}/toggle-active]
+### (Admin) Customer Toggle Active [POST]
+Toggle Customer Active/Inactive state. Returns true if updated to true, otherwise: false.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                "code": 0,
+                "message": "Success",
+                "data": true
+            }
+
+## Admin: Customer User List [/admin/customers/{customerId}/users]
+### (Admin) Customer User List [GET]
+Show list of user attached with customer. Same result as /customers/{customerId}/users
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "code": 0,
+                "message": "Success",
+                "data": [
+                    {
+                        "id": 1,
+                        "civility": "mr",
+                        "lastName": "Lala",
+                        "firstName": "Lulu",
+                        "email": "luluz@mailinator.com",
+                        "mobilePhone": null,
+                        "officePhone": null,
+                        "jobTitle": "CED",
+                        "isAdmin": false,
+                        "isActive": true,
+                        "profilePicPath": null,
+                        "company": {
+                            "id": 1,
+                            "fullName": "21 July Editz",
+                            "tradeName": "1111",
+                            "intercommunityVat": "11111",
+                            "naf": "1111",
+                            "siren": null,
+                            "vat": null,
+                            "vatOption": 1,
+                            "raisonSociale": {
+                                "id": 5,
+                                "code": "M14",
+                                "label": "EURL"
+                            },
+                            "address": {
+                                "id": 1,
+                                "address1": "S Las Vegas Blvd",
+                                "address2": null,
+                                "zipcode": "11",
+                                "city": "Clark County",
+                                "country": "United States",
+                                "lat": 36.045999,
+                                "lng": -115.1722248
+                            }
+                        },
+                        "accesses": [
+                            {
+                                "id": 1,
+                                "isPowerUser": true,
+                                "customer": {
+                                    "id": 1,
+                                    "fullName": "21 July Editz",
+                                    "tradeName": "1111",
+                                    "vatOption": 1,
+                                    "active": 0,
+                                    "intercommunityVat": "11111",
+                                    "vat": null,
+                                    "siren": null,
+                                    "naf": "1111",
+                                    "iban": "FR7630001007941234567890185",
+                                    "accountName": "21212",
+                                    "swift": "FRFRFR76300",
+                                    "addressOption": 1,
+                                    "customerImg": [
+                                        ""
+                                    ],
+                                    "company": {
+                                        "id": 1,
+                                        "fullName": "Tesla Corp",
+                                        "tradeName": "Tesla",
+                                        "intercommunityVat": "11111",
+                                        "naf": "1111",
+                                        "siren": null,
+                                        "vat": null,
+                                        "vatOption": 1,
+                                        "raisonSociale": {
+                                            "id": 5,
+                                            "code": "M14",
+                                            "label": "EURL"
+                                        },
+                                        "address": {
+                                            "id": 1,
+                                            "address1": "S Las Vegas Blvd",
+                                            "address2": null,
+                                            "zipcode": "11",
+                                            "city": "Clark County",
+                                            "country": "United States",
+                                            "lat": 36.045999,
+                                            "lng": -115.1722248
+                                        }
+                                    }
+                                },
+                                "resources": {
+                                    "portfolios": [
+                                        {
+                                            "id": 1,
+                                            "__DEVNOTE__id": "Id of portfolio",
+                                            "profile": {
+                                                "id": 3,
+                                                "name": "Broker Portfolio 1",
+                                                "slug": "1-broker-11231"
+                                            },
+                                            "allPropertiesOption": false,
+                                            "properties": [
+                                                {
+                                                    "id": 1,
+                                                    "name": "Property #1",
+                                                    "__DEVNOTE_profile": "Profile here is User User Access.",
+                                                    "profile": {
+                                                        "id": 4,
+                                                        "name": "Broker",
+                                                        "slug": "1-broker-1524"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": 2,
+                                            "__DEVNOTE__id": "Id of portfolio",
+                                            "profile": null,
+                                            "allPropertiesOption": true,
+                                            "__DEVNOTE_allPropertiesOption": "Property option used to override all property access.",
+                                            "properties": null
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+
+## Group Admin: User List
 ## Admin: User List [/admin/users?]
 ### (Admin) User List [GET]
-User list.
+User list with information of the customer/company if exist.
 
 + Request (application/json)
 
@@ -473,13 +1150,23 @@ User detail.
                 }
             }
 
-## Admin: User Create [/admin/users]
-### (NOT AVAILABLE ATM)(Admin) User Create [POST]
+## -NEW- Admin: User Create [/admin/users]
+### (Admin) User Create [POST]
 Create user.
 
 + Request (application/json)
 
         {
+            "customerOption": {
+                "id": 1,
+                "name": "Blue Whole Corp."
+            },
+            "customerProfileOption": {
+                "id": 2,
+                "name": "Asset Manager"
+            },
+            "customerPowerUserOption": true,
+            
             "civility": "mr",
             "lastName": "Lala",
             "firstName": "Lulu",
@@ -487,8 +1174,6 @@ Create user.
             "mobilePhone": null,
             "officePhone": null,
             "jobTitle": "CED",
-        
-        
             "profilePicPath": null,
         
             "__DEVNOTE__company": "Can lookup or create",
@@ -649,12 +1334,22 @@ Create user.
                 }
             }
 
-## Admin: User Update [/admin/users/{userId}]
-### (NOT AVAILABLE ATM)(Admin) User Update [POST]
+## -NEW- Admin: User Update [/admin/users/{userId}]
+### (Admin) User Update [POST]
 
 + Request (application/json)
 
         {
+            "customerOption": {
+                "id": 1,
+                "name": "Blue Whole Corp."
+            },
+            "customerProfileOption": {
+                "id": 2,
+                "name": "Asset Manager"
+            },
+            "customerPowerUserOption": true,
+
             "id": 2,
             "civility": "mr",
             "lastName": "Lala",
