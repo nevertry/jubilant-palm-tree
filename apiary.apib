@@ -875,7 +875,7 @@ Show list of user attached with customer. Same result as /customers/{customerId}
                 ]
             }
 
-## Group Admin: User List
+## Group -UPDATED- Admin: User Resource
 ## Admin: User List [/admin/users?]
 ### (Admin) User List [GET]
 User list with information of the customer/company if exist.
@@ -1849,9 +1849,123 @@ Demote User of a Customer from a Power User. Relation must exists.
                 }
             }
 
-## Group Admin: Profile
+## -NEW- Admin: User Lookup by Email [/admin/users/lookup?search={keyword}]
+### (Admin) User Lookup by Email [GET]
+Lookup user detail by email address.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                "code": 0,
+                "message": "Success",
+                "data": [
+                    {
+                        "id": 4,
+                        "email": "hendy.yanuar+hps@wgs.co.id",
+                        "civility": "mr",
+                        "firstName": "Harry",
+                        "lastName": "Pantjas",
+                        "mobilePhone": "09",
+                        "officePhone": null,
+                        "jobTitle": "DR",
+                        "isAdmin": null,
+                        "isActive": 1,
+                        "profilePicPath": null,
+                        "color": null,
+                        "company": {
+                            "id": 6,
+                            "address": {
+                                "id": 24,
+                                "address1": "West Lane 12",
+                                "address2": null,
+                                "zipcode": "14123",
+                                "city": "Vancouver",
+                                "country": "CANADA",
+                                "lat": 49.2827291,
+                                "lng": -123.1207375
+                            },
+                            "fullName": "Metro Corp.",
+                            "tradeName": "MCORP",
+                            "raisonSociale": {
+                                "id": 1,
+                                "code": "M01",
+                                "label": "SOCIETE"
+                            },
+                            "intercommunityVat": "VAT111",
+                            "naf": "NAF",
+                            "siren": null,
+                            "vat": null,
+                            "vatOption": 1
+                        },
+                        "accesses": [
+                            {
+                                "id": 3,
+                                "isPowerUser": false,
+                                "profile": null,
+                                "customer": {
+                                    "id": 3,
+                                    "fullName": "Metro Corp.",
+                                    "tradeName": "MCORP",
+                                    "vatOption": 1,
+                                    "active": 1,
+                                    "intercommunityVat": "VAT111",
+                                    "vat": null,
+                                    "siren": null,
+                                    "naf": "NAF",
+                                    "iban": "FR7630001007941234567890185",
+                                    "accountName": "IBANK",
+                                    "swift": "FRFRFR76300",
+                                    "addressOption": 0,
+                                    "customerImg": [
+                                        ""
+                                    ],
+                                    "raisonSociale": {
+                                        "id": 1,
+                                        "code": "M01",
+                                        "label": "SOCIETE"
+                                    },
+                                    "company": {
+                                        "id": 6,
+                                        "address": {
+                                            "id": 24,
+                                            "address1": "West Lane 12",
+                                            "address2": null,
+                                            "zipcode": "14123",
+                                            "city": "Vancouver",
+                                            "country": "CANADA",
+                                            "lat": 49.2827291,
+                                            "lng": -123.1207375
+                                        },
+                                        "fullName": "Metro Corp.",
+                                        "tradeName": "MCORP",
+                                        "raisonSociale": {
+                                            "id": 1,
+                                            "code": "M01",
+                                            "label": "SOCIETE"
+                                        },
+                                        "intercommunityVat": "VAT111",
+                                        "naf": "NAF",
+                                        "siren": null,
+                                        "vat": null,
+                                        "vatOption": 1
+                                    }
+                                },
+                                "resources": {
+                                    "portfolios": []
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+
+## Group -NEW- Admin: Profile
 ## Admin: Profile List [/admin/profiles?]
-### (NOT AVAILABLE ATM) (Admin) Profile List [GET]
+### (Admin) Profile List [GET]
 
 + Request (application/json)
 
@@ -1886,6 +2000,42 @@ Demote User of a Customer from a Power User. Relation must exists.
                         }
                     }
                 ]
+            }
+
+## Admin: Profile Detail [/admin/profiles/{profileId}?]
+### (Admin) Profile Detail [GET]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "id": 2,
+                    "name": "Asset Manager (Copy)",
+                    "description": "Copy of an asset manager",
+                    "slug": "1-asset-manager-1",
+                    "permissions": [
+                        {
+                            "user.create": true
+                        },
+                        {
+                            "user.read": true
+                        },
+                        {
+                            "user.update": true
+                        }
+                    ],
+                    "familyProfile": {
+                        "id": 1,
+                        "name": "Asset Manager",
+                        "slug": "asset-manager"
+                    }
+                }
             }
 
 ## Group Customer: User
