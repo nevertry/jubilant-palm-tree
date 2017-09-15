@@ -875,7 +875,7 @@ Show list of user attached with customer. Same result as /customers/{customerId}
                 ]
             }
 
-## Group Admin: Customer's User Access
+## Group -NEW- Admin: Customer's User Access
 ## Admin: Customer's User Access [/admin/customers/{customerId}/users/{userId}/access?]
 ### (Admin) Customer's User Access [GET]
 As an Admin, only selected Customer can only see access of it's own user of the same customer detail information.
@@ -3647,87 +3647,6 @@ Get Global Access List of User for Dataroom.
                 }
             }
 
-## Group Profile Permission
-## Profile Permission List [/permissions?]
-### Profile Permission List [GET]
-Get Profile Permission List.
-
-+ Request (application/json)
-
-+ Response 200 (application/json)
-
-    + Body
-    
-            {
-                "code": 0,
-                "message": "Success",
-                "data": {
-                    "permissions": {
-                        "portfolio": [
-                            "portfolio.read",
-                            "portfolio.manage",
-                            "portfolio.delete"
-                        ],
-                        "property": [
-                            "property.read",
-                            "property.manage",
-                            "property.delete"
-                        ],
-                        "contract": [
-                            "contract.read",
-                            "contract.manage",
-                            "contract.delete",
-                            "contract.validate"
-                        ],
-                        "tenancy-schedule": [
-                            "tenancy-schedule.read",
-                            "tenancy-schedule.download"
-                        ],
-                        "crm-prospect": [
-                            "crm-prospect.read",
-                            "crm-prospect.manage",
-                            "crm-prospect.delete"
-                        ],
-                        "crm-transaction": [
-                            "crm-transaction.read",
-                            "crm-transaction.manage",
-                            "crm-transaction.delete"
-                        ],
-                        "crm-competitor": [
-                            "crm-competitor.read",
-                            "crm-competitor.manage",
-                            "crm-competitor.delete"
-                        ],
-                        "dataroom": [
-                            "dataroom.edit",
-                            "dataroom.document-upload",
-                            "dataroom.document-delete"
-                        ],
-                        "kpi": [
-                            "kpi.lettable-area.read",
-                            "kpi.occupied-area.read",
-                            "kpi.annual-income.read",
-                            "kpi.occupation-rate.read",
-                            "kpi.property-value.read",
-                            "kpi.average-economic-rent-signature.read",
-                            "kpi.tenant.read",
-                            "kpi.current-capex-program.read",
-                            "kpi.debt.read",
-                            "kpi.recoverable-charge-tax.read",
-                            "kpi.average-face-rent-signature.read",
-                            "kpi.erv.read",
-                            "kpi.average-face-rent.read"
-                        ],
-                        "stacking-plan": [
-                            "stacking-plan.read"
-                        ],
-                        "next-break": [
-                            "next-break.read"
-                        ]
-                    }
-                }
-            }
-
 ## Group Customer: User Access Properties
 ## Customer: User Access Properties [/customers/{customerId}/users/{userId}/access-properties?]
 ### Customer: User Access Properties [GET]
@@ -3869,5 +3788,86 @@ Save User Access for Dataroom Resource.
                             "dataroomLevel": []
                         }
                     ]
+                }
+            }
+
+## Group Global Lookup
+## Profile Permission List [/permissions?]
+### Profile Permission List [GET]
+Get Profile Permission List.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "permissions": {
+                        "portfolio": [
+                            "portfolio.read",
+                            "portfolio.manage",
+                            "portfolio.delete"
+                        ],
+                        "property": [
+                            "property.read",
+                            "property.manage",
+                            "property.delete"
+                        ],
+                        "contract": [
+                            "contract.read",
+                            "contract.manage",
+                            "contract.delete",
+                            "contract.validate"
+                        ],
+                        "tenancy-schedule": [
+                            "tenancy-schedule.read",
+                            "tenancy-schedule.download"
+                        ],
+                        "crm-prospect": [
+                            "crm-prospect.read",
+                            "crm-prospect.manage",
+                            "crm-prospect.delete"
+                        ],
+                        "crm-transaction": [
+                            "crm-transaction.read",
+                            "crm-transaction.manage",
+                            "crm-transaction.delete"
+                        ],
+                        "crm-competitor": [
+                            "crm-competitor.read",
+                            "crm-competitor.manage",
+                            "crm-competitor.delete"
+                        ],
+                        "dataroom": [
+                            "dataroom.edit",
+                            "dataroom.document-upload",
+                            "dataroom.document-delete"
+                        ],
+                        "kpi": [
+                            "kpi.lettable-area.read",
+                            "kpi.occupied-area.read",
+                            "kpi.annual-income.read",
+                            "kpi.occupation-rate.read",
+                            "kpi.property-value.read",
+                            "kpi.average-economic-rent-signature.read",
+                            "kpi.tenant.read",
+                            "kpi.current-capex-program.read",
+                            "kpi.debt.read",
+                            "kpi.recoverable-charge-tax.read",
+                            "kpi.average-face-rent-signature.read",
+                            "kpi.erv.read",
+                            "kpi.average-face-rent.read"
+                        ],
+                        "stacking-plan": [
+                            "stacking-plan.read"
+                        ],
+                        "next-break": [
+                            "next-break.read"
+                        ]
+                    }
                 }
             }
