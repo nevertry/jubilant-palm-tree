@@ -1149,6 +1149,151 @@ Get Global Access List of User for Dataroom.
                 }
             }
 
+## Group ---1.1.3
+
+## Group Admin: Customer's User Access Dataroom Resource
+## Admin: Customer's User Access Properties List [/admin/customers/{customerId}/users/{userId}/access-properties?]
+### (Admin) Customer's User Access Properties List [GET]
+Admin can get list of Properties for access modification for User.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "data": [
+                        {
+                            "__DEVNOTE__id": "id of Property",
+                            "id": 1,
+                            "name": "My Property A",
+                            "portfolio": {
+                                "id": 1,
+                                "name": "My Portfolio 1"
+                            },
+                            "company": {
+                                "id": 1,
+                                "name": "Company X"
+                            }
+                        },
+                        {
+                            "__DEVNOTE__id": "id of Property",
+                            "id": 2,
+                            "name": "My Property B",
+                            "portfolio": {
+                                "id": 1,
+                                "name": "My Portfolio 1"
+                            },
+                            "company": {
+                                "id": 1,
+                                "name": "Company X"
+                            }
+                        }
+                    ],
+                    "meta": {
+                        "pagination": {
+                            "total": 3,
+                            "count": 3,
+                            "per_page": 8,
+                            "current_page": 1,
+                            "total_pages": 1,
+                            "links": []
+                        }
+                    }
+                }
+            }
+
+## Admin: Customer's User Access Dataroom Resources [/admin/customers/{customerId}/users/{userId}/access-dataroom-resource/properties/{propertyId}?]
+### Admin: Customer's User Access Dataroom Resources [GET]
+Admin can get list of Access for Dataroom Resource of a User.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "dataroomDetail": [
+                        {
+                            "id": 1,
+                            "userId": 1,
+                            "customerId": 1,
+                            "propertyId": 1,
+                            "dataroomLevelOption": false,
+                            "dataroomLevel": [
+                                "I",
+                                "I.A.1",
+                                "II"
+                            ]
+                        },
+                        {
+                            "id": 1,
+                            "userId": 1,
+                            "customerId": 1,
+                            "propertyId": 1,
+                            "dataroomLevelOption": true
+                            "dataroomLevel": []
+                        }
+                    ]
+                }
+            }
+
+## Admin: Customer's User Access Dataroom Resources [/admin/customers/{customerId}/users/{userId}/access-dataroom-resource/properties/{propertyId}]
+### Admin: Customer's User Access Dataroom Resources [POST]
+Save User Access for Dataroom Resource.
+
++ Request (application/json)
+
+        {
+            "dataroomLevelOption": false,
+            "dataroomLevel": [
+                "I",
+                "I.A.1",
+                "II"
+            ]
+        }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "code": 0,
+                "message": "Success",
+                "data": {
+                    "dataroomDetail": [
+                        {
+                            "id": 1,
+                            "userId": 1,
+                            "customerId": 1,
+                            "propertyId": 1,
+                            "dataroomLevelOption": false,
+                            "dataroomLevel": [
+                                "I",
+                                "I.A.1",
+                                "II"
+                            ]
+                        },
+                        {
+                            "id": 1,
+                            "userId": 1,
+                            "customerId": 1,
+                            "propertyId": 1,
+                            "dataroomLevelOption": true
+                            "dataroomLevel": []
+                        }
+                    ]
+                }
+            }
+
 ## Group ---1.2
 
 ## Group -UPDATED- Admin: User Resource
@@ -3513,9 +3658,9 @@ Get Global Access List of User for Dataroom.
 
 ## Group ---2.1.3
 
-## Group Customer: User Access Properties
-## Customer: User Access Properties [/customers/{customerId}/users/{userId}/access-properties?]
-### Customer: User Access Properties [GET]
+## Group Customer: User Access Dataroom Resource
+## Customer: User Access Properties List [/customers/{customerId}/users/{userId}/access-properties?]
+### Customer: User Access Properties List [GET]
 Get list of Properties for access modification for User.
 
 + Request (application/json)
@@ -3569,7 +3714,6 @@ Get list of Properties for access modification for User.
                 }
             }
 
-## Group Customer: User Access Dataroom Resources
 ## Customer: User Access Dataroom Resources [/customers/{customerId}/users/{userId}/access-dataroom-resource/properties/{propertyId}?]
 ### Customer: User Access Dataroom Resources [GET]
 Get list of Access for Dataroom Resource of a User
