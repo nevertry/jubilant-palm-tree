@@ -198,6 +198,8 @@ Reset password.
                 }
             }
 
+## Group ---------------------1
+
 ## Group -NEW- Admin: Customer
 ## Admin: Customer List [/admin/customers?]
 ### (Admin) Customer List [GET]
@@ -875,6 +877,8 @@ Show list of user attached with customer. Same result as /customers/{customerId}
                 ]
             }
 
+## Group ---------------------2
+
 ## Group -NEW- Admin: Customer's User Access
 ## Admin: Customer's User Access [/admin/customers/{customerId}/users/{userId}/access?]
 ### (Admin) Customer's User Access [GET]
@@ -1015,6 +1019,8 @@ Will replace (deletes existing) access table content according to requested data
                     ]
                 }
             }
+
+## Group ---------------------3
 
 ## Group -UPDATED- Admin: User Resource
 ## Admin: User List [/admin/users?]
@@ -1660,7 +1666,6 @@ Create user.
                 }
             }
 
-
 ## Admin: User Delete [/admin/users/{userId}/delete]
 ### (NOT AVAILABLE ATM)(Admin) User Delete [POST]
 
@@ -2104,6 +2109,8 @@ Lookup user detail by email address.
                 ]
             }
 
+## Group ---------------------4
+
 ## Group -NEW- Admin: Profile
 ## Admin: Profile List Parent [/admin/profiles/list?]
 ### (Admin) Profile List Parent [GET]
@@ -2267,6 +2274,8 @@ Update Profile. Admin can only update name, description, & permission of `custom
                     }
                 ]
             }
+
+## Group ---------------------5
 
 ## Group Customer: User
 ## Customer: User List [/customers/{customerId}/users?]
@@ -3103,6 +3112,8 @@ Lookup user detail by email address. Only show access related to given customer,
                 ]
             }
 
+## Group ---------------------6
+
 ## Group Customer: Profile
 ## Customer: Profile List [/customers/{customerId}/profiles?]
 ### (Customer) Profile List [GET]
@@ -3380,6 +3391,7 @@ List Child Profile by parent slug.
                 ]
             }
 
+## Group ---------------------7
 
 ## Group Customer: User Access
 ## Customer: User Access Detail [/customers/{customerId}/users/{userId}/access?]
@@ -3522,6 +3534,8 @@ Will replace (deletes existing) access table content according to requested data
                 }
             }
 
+## Group ---------------------8
+
 ## Group Customer: User Access Dataroom Global
 ## Customer: User Access Dataroom Global List [/customers/{customerId}/users/{userId}/access-dataroom-global-list?]
 ### Customer: User Access Dataroom Global List [POST]
@@ -3646,6 +3660,8 @@ Get Global Access List of User for Dataroom.
                     ]
                 }
             }
+
+## Group ---------------------9
 
 ## Group Customer: User Access Properties
 ## Customer: User Access Properties [/customers/{customerId}/users/{userId}/access-properties?]
@@ -3790,6 +3806,8 @@ Save User Access for Dataroom Resource.
                     ]
                 }
             }
+
+## Group ---------------------10
 
 ## Group Global Lookup
 ## Profile Permission List [/permissions?]
