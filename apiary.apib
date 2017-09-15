@@ -1024,7 +1024,7 @@ Will replace (deletes existing) access table content according to requested data
 
 ## Group ---1.1.2
 
-## Group Admin Customer: User Access Dataroom Global
+## Group -NEW- Admin Customer: User Access Dataroom Global
 ## Admin: Customer's User Access Dataroom Global List [/admin/customers/{customerId}/users/{userId}/access-dataroom-global-list?]
 ### (Admin) Customer's User Access Dataroom Global List [POST]
 Admin can get Dataroom parent list
@@ -1151,7 +1151,7 @@ Get Global Access List of User for Dataroom.
 
 ## Group ---1.1.3
 
-## Group Admin: Customer's User Access Dataroom Resource
+## Group -NEW- Admin: Customer's User Access Dataroom Resource
 ## Admin: Customer's User Access Properties List [/admin/customers/{customerId}/users/{userId}/access-properties?]
 ### (Admin) Customer's User Access Properties List [GET]
 Admin can get list of Properties for access modification for User.
@@ -4161,4 +4161,121 @@ Get Profile Permission List.
                         ]
                     }
                 }
+            }
+
+## Registered Company Lookup [/companies/lookup?search={keyword}&customerId={customerId}]
+### Registered Company Lookup [GET]
+User can lookup company by name. `customerId` is required for Power User.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "code": 0,
+                "message": "Success",
+                "data": [
+                    {
+                        "id": 5,
+                        "address": {
+                            "id": 22,
+                            "address1": "West Lane 12",
+                            "address2": null,
+                            "zipcode": "14123",
+                            "city": "Vancouver",
+                            "country": "CANADA",
+                            "lat": 49.2827291,
+                            "lng": -123.1207375
+                        },
+                        "fullName": "Metro Corp.",
+                        "tradeName": "MCORP",
+                        "raisonSociale": {
+                            "id": 1,
+                            "code": "M01",
+                            "label": "SOCIETE"
+                        },
+                        "intercommunityVat": "VAT111",
+                        "naf": "NAF",
+                        "siren": null,
+                        "vat": null,
+                        "vatOption": 1
+                    },
+                    {
+                        "id": 6,
+                        "address": {
+                            "id": 24,
+                            "address1": "West Lane 12",
+                            "address2": null,
+                            "zipcode": "14123",
+                            "city": "Vancouver",
+                            "country": "CANADA",
+                            "lat": 49.2827291,
+                            "lng": -123.1207375
+                        },
+                        "fullName": "Metro Corp.",
+                        "tradeName": "MCORP",
+                        "raisonSociale": {
+                            "id": 1,
+                            "code": "M01",
+                            "label": "SOCIETE"
+                        },
+                        "intercommunityVat": "VAT111",
+                        "naf": "NAF",
+                        "siren": null,
+                        "vat": null,
+                        "vatOption": 1
+                    },
+                    {
+                        "id": 7,
+                        "address": {
+                            "id": 26,
+                            "address1": "West Lane 12",
+                            "address2": null,
+                            "zipcode": "14123",
+                            "city": "Vancouver",
+                            "country": "CANADA",
+                            "lat": 49.2827291,
+                            "lng": -123.1207375
+                        },
+                        "fullName": "Metro Corp.",
+                        "tradeName": "MCORP",
+                        "raisonSociale": {
+                            "id": 1,
+                            "code": "M01",
+                            "label": "SOCIETE"
+                        },
+                        "intercommunityVat": "VAT111",
+                        "naf": "NAF",
+                        "siren": null,
+                        "vat": null,
+                        "vatOption": 1
+                    },
+                    {
+                        "id": 8,
+                        "address": {
+                            "id": 28,
+                            "address1": "West Lane 12",
+                            "address2": null,
+                            "zipcode": "14123",
+                            "city": "Vancouver",
+                            "country": "CANADA",
+                            "lat": 49.2827291,
+                            "lng": -123.1207375
+                        },
+                        "fullName": "Metro Corp.",
+                        "tradeName": "MCORP",
+                        "raisonSociale": {
+                            "id": 1,
+                            "code": "M01",
+                            "label": "SOCIETE"
+                        },
+                        "intercommunityVat": "VAT111",
+                        "naf": "NAF",
+                        "siren": null,
+                        "vat": null,
+                        "vatOption": 1
+                    }
+                ]
             }
